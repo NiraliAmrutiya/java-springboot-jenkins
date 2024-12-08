@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'prod' , credentialsId: 'git-cred' , url: 'https://github.com/NiraliAmrutiya/java-springboot-jenkins.git'
+                git branch: 'main' , url: 'https://github.com/NiraliAmrutiya/java-springboot-jenkins.git'
 
             }
         }
