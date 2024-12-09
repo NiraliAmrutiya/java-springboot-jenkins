@@ -39,8 +39,14 @@ pipeline {
         stage ('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
-                    -Dsonar.java.binaries=. -Dsonar.exclusions=**/trivy-image-report.html'''
+                    sh ''' 
+                        $SCANNER_HOME/bin/sonar-scanner \
+                        -Dsonar.projectName=BoardGame \
+                        -Dsonar.projectKey=BoardGame \
+                        -Dsonar.java.binaries=target/classes \
+                        -Dsonar.java.libraries="target/dependency/*.jar" \
+                        -Dsonar.exclusions="**/trivy-image-report.html"
+                    '''
                 }
             }
         }
