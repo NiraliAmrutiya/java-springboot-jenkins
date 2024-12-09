@@ -45,6 +45,7 @@ pipeline {
                         -Dsonar.projectKey=BoardGame \
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.java.libraries="target/dependency/*.jar" \
+                        -Dsonar.nodejs.executable=/usr/bin/node \
                         -Dsonar.exclusions="**/trivy-image-report.html"
                     '''
                 }
